@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <cn.lc.model.framework.widget.TitleBar
+        android:id="@+id/mTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_common" />
+
+
+    <EditText
+        android:id="@+id/et_password"
+        style="@style/tvStyle_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/common_bg"
+        android:ems="10"
+        android:gravity="left|center"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dip" />
+
+
+    <EditText
+        android:id="@+id/et_repassword"
+        style="@style/tvStyle_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/common_bg"
+        android:gravity="left|center"
+        android:hint="请再次输入密码"
+        android:inputType="textPassword"
+        android:paddingLeft="10dip" />
+
+
+    <Button
+        android:id="@+id/bt_next"
+        style="@style/tvStyle_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="60dp"
+        android:background="@mipmap/common_bg"
+        android:padding="10dp"
+        android:text="完成" />
+</LinearLayout>

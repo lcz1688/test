@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:banner="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+
+    <!--头部-->
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_scan"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_launcher">
+
+            <TextView
+                android:id="@+id/tv_left"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_common" />
+
+            <TextView
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/tv_left"
+                android:background="@null"
+                android:drawablePadding="18px"
+                android:gravity="start|center_vertical"
+                android:hint=""
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="28px" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_msg"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/id_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_head"
+        android:layout_below="@+id/ll_head">
+
+        <ScrollView
+            android:id="@+id/pullToRefreshScrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_head"
+            android:descendantFocusability="blocksDescendants"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <!--轮播图-->
+
+                <cn.lc.model.framework.widget.SimpleImageBanner
+                    android:id="@+id/h_banner_viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    banner:bb_barColor="#00000000"
+                    banner:bb_barPaddingBottom="5dp"
+                    banner:bb_barPaddingLeft="10dp"
+                    banner:bb_barPaddingRight="10dp"
+                    banner:bb_barPaddingTop="5dp"
+                    banner:bb_delay="2"
+                    banner:bb_indicatorCornerRadius="3dp"
+                    banner:bb_indicatorGap="8dp"
+                    banner:bb_indicatorGravity="CENTER"
+                    banner:bb_indicatorHeight="6dp"
+                    banner:bb_indicatorSelectColor="@color/tv_blue"
+                    banner:bb_indicatorStyle="CORNER_RECTANGLE"
+                    banner:bb_indicatorUnselectColor="#88ffffff"
+                    banner:bb_indicatorWidth="6dp"
+                    banner:bb_isAutoScrollEnable="true"
+                    banner:bb_isBarShowWhenLast="true"
+                    banner:bb_isIndicatorShow="true"
+                    banner:bb_isLoopEnable="true"
+                    banner:bb_isTitleShow="true"
+                    banner:bb_period="5"
+                    banner:bb_scale="0.5625"
+                    banner:bb_textColor="#ffffff"
+                    banner:bb_textSize="13.5sp" />
+                <!--分类-->
+
+                <cn.lc.model.framework.widget.NoSlidingGridView
+                    android:id="@+id/gridView_catogary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:numColumns="4" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <cn.lc.model.ui.mywidget.NoticeView
+                        android:id="@+id/notice"
+                        style="@style/tvStyle_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green" />
+
+                </LinearLayout>
+
+                <!--推荐专家-->
+                <LinearLayout
+                    android:id="@+id/ll_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/bg_color"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:background="@color/bg_color" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="推荐专家"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更多"
+                        android:textColor="@color/tv_blue" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow_right" />
+
+                </LinearLayout>
+
+
+                <cn.lc.model.framework.widget.HorizontialListView
+                    android:id="@+id/listView_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="140dp" />
+                <!--钜惠套餐-->
+                <LinearLayout
+                    android:id="@+id/ll_meal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/bg_color"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:background="@color/tv_blue" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="钜惠套餐"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更多"
+                        android:textColor="@color/tv_blue" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow_right" />
+                </LinearLayout>
+
+
+                <cn.lc.model.framework.widget.HorizontialListView
+                    android:id="@+id/listView_meal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp" />
+                <!--猜你喜欢-->
+                <LinearLayout
+                    android:id="@+id/ll_love"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:background="@color/tv_blue" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="猜你喜欢"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更多"
+                        android:textColor="@color/tv_blue" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow_right" />
+
+                </LinearLayout>
+
+
+                <cn.lc.model.framework.widget.NoSlidingGridView
+                    android:id="@+id/gridView_love"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:horizontalSpacing="10dp"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="2"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:verticalSpacing="10dp" />
+
+
+                <!--健康咨询-->
+                <LinearLayout
+                    android:id="@+id/ll_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/bg_color"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:background="@color/tv_blue" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="健康资讯"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        style="@style/tvStyle_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更多"
+                        android:textColor="@color/tv_blue" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow_right" />
+                </LinearLayout>
+
+                <cn.lc.model.framework.widget.NoSlidingListView
+                    android:id="@+id/listView_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <!--一键预约按钮-->
+    <ImageButton
+        android:id="@+id/oneKey_reserve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/ic_launcher" />
+
+
+</RelativeLayout>
